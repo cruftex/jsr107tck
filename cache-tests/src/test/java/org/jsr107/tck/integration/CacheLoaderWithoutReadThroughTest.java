@@ -862,6 +862,7 @@ public class CacheLoaderWithoutReadThroughTest {
     //wait for the load to complete
     try {
       future.get();
+      fail("exception expected");
     } catch (ExecutionException e) {
       assertThat(e.getCause(), instanceOf(CacheLoaderException.class));
     }
